@@ -1,0 +1,6 @@
+= simple_form_for @customer, :url => user_customer_path(@user), :html => { :class => 'form-horizontal' } do |f|
+  - [:first_name, :last_name, :email, :company, :website, :phone, :fax].each do |attribute|
+    = f.input attribute
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
