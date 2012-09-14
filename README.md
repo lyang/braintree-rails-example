@@ -1,8 +1,8 @@
 braintree-rails-example
 ===============
-braintree-rails-example provides a demo rails application that uses braintree-rails gem to interact with Braintree api.
+[braintree-rails-example](https://github.com/lyang/braintree-rails-example) provides a demo rails application that uses [braintree-rails](https://github.com/lyang/braintree-rails) gem to interact with Braintree api.
 
-It demonstrates how braintree-rails simplifies the interaction with reources stored in Braintree's vault.
+It demonstrates how [braintree-rails](https://github.com/lyang/braintree-rails-example) simplifies the interaction with reources stored in Braintree's vault.
 
 You can do most of the CRUD operations on the wrapped models just as if they are ActiveRecord.
 
