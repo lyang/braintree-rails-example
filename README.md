@@ -30,7 +30,7 @@ Then you need to edit config/braintree.rb to put in your Braintree sandbox crede
 Then you can start the sample with
     rails s
     
-notice
+Notice
 ===============
 This IS NOT created or maintained by Braintree Payments
 
