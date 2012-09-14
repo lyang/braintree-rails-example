@@ -3,4 +3,4 @@
     = f.input attribute
   .form-actions
     = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+    = link_to 'Cancel', user_path(@user), :class => 'btn'

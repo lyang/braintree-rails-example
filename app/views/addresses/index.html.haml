@@ -1,0 +1,24 @@
+- model_class = BraintreeRails::Address
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:full_name)
+      %th= model_class.human_attribute_name(:company)
+      %th= model_class.human_attribute_name(:street_address)
+      %th= model_class.human_attribute_name(:extended_address)
+      %th= 'Actions'
+  %tbody
+    - @addresses.each do |address|
+      %tr
+        %td= address.full_name
+        %td= address.company
+        %td= address.street_address
+        %td= address.extended_address
+        %td
+          = link_to 'Edit', edit_user_customer_address_path(@user, address.id), :class => 'btn btn-mini'
+          = link_to 'Destroy', user_customer_address_path(@user, address.id), :method => :delete, :confirm =>'Are you sure?', :class => 'btn btn-mini btn-danger'
+
+= link_to 'Back', user_customer_path(@user), :class => 'btn'
+= link_to 'New', new_user_customer_address_path(@user), :class => 'btn btn-primary'

@@ -4,6 +4,8 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 gem 'simple_form'
 gem 'haml-rails'
+gem 'carmen-rails'
+
 gem 'braintree-rails', :git => "git://github.com/lyang/braintree-rails.git"
 
 group :assets do

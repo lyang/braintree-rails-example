@@ -23,14 +23,12 @@ class CustomersController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
     if @customer.update_attributes(params[:customer])
       flash[:notice] = "Customer has been successfully updated."
       redirect_to user_customer_path(@user) and return
     else
-      render :new
+      render :edit
     end
   end
 

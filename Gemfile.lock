@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/lyang/braintree-rails.git
-  revision: a55580b6b54c638ce7fb71c5a9e18553aa4f752e
+  revision: 2dea2156d7dfb22e83f13154715fe4a3b3c0797a
   specs:
     braintree-rails (0.0.1)
       activemodel (~> 3.0)
@@ -41,6 +41,10 @@ GEM
     braintree (2.14.0)
       builder (>= 2.0.0)
     builder (3.0.3)
+    carmen (1.0.0.beta2)
+    carmen-rails (1.0.0.beta3)
+      carmen (~> 1.0.0.beta2)
+      rails
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -138,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   braintree-rails!
+  carmen-rails
   coffee-rails (~> 3.2.1)
   haml-rails
   jquery-rails

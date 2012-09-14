@@ -1,0 +1,24 @@
+- model_class = BraintreeRails::CreditCard
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:card_type)
+      %th= model_class.human_attribute_name(:masked_number)
+      %th= model_class.human_attribute_name(:cardholder_name)
+      %th= model_class.human_attribute_name(:expiration_date)
+      %th= 'Actions'
+  %tbody
+    - @credit_cards.each do |credit_card|
+      %tr
+        %td= credit_card.card_type
+        %td= link_to credit_card.masked_number, user_customer_credit_card_path(@user, credit_card.id)
+        %td= credit_card.cardholder_name
+        %td= credit_card.expiration_date
+        %td
+          = link_to 'Edit', edit_user_customer_credit_card_path(@user, credit_card.id), :class => 'btn btn-mini'
+          = link_to 'Destroy', user_customer_credit_card_path(@user, credit_card.id), :method => :delete, :confirm =>'Are you sure?', :class => 'btn btn-mini btn-danger'
+
+= link_to 'Back', user_customer_path(@user), :class => 'btn'
+= link_to 'New', new_user_customer_credit_card_path(@user), :class => 'btn btn-primary'
