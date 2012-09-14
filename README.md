@@ -1,10 +1,16 @@
 braintree-rails-example
 ===============
-braintree-rails-example provides a sample rails application that uses braintree-rails gem to interact with Braintree payments api.
+braintree-rails-example provides a demo rails application that uses braintree-rails gem to interact with Braintree api.
 
-It demonstrates how braintree-rails simplifies the management of reources stored in Braintree's vault.
+It demonstrates how braintree-rails simplifies the interaction with reources stored in Braintree's vault.
 
-Currently it uses Braintree's S2S API.
+You can do most of the CRUD operations on the wrapped models just as if they are ActiveRecord.
+
+The demo app has only one user model, with two columns, email and customer_id.
+
+All other models, Customer, CreditCard, Address are stored in Braintree's vault.
+
+Currently it uses Braintree's S2S (server to server) API.
 
 Examples of TR (transparent redirect) will be added later.
 
@@ -20,6 +26,7 @@ Setup the database
     rake db:migrate
     
 Then you need to edit config/braintree.rb to put in your Braintree sandbox credentials
+    
     Braintree::Configuration.environment = :sandbox
     Braintree::Configuration.logger = Logger.new('log/braintree.log')
 
@@ -27,7 +34,7 @@ Then you need to edit config/braintree.rb to put in your Braintree sandbox crede
     # Braintree::Configuration.public_key = ''
     # Braintree::Configuration.private_key = ''
 
-Then you can start the sample with
+Then you can start the demo with
     rails s
     
 Notice
