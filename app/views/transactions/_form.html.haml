@@ -1,0 +1,6 @@
+= simple_form_for @transaction, :url => user_customer_transactions_path(@user), :html => { :class => 'form-horizontal' } do |f|
+  = f.input :amount
+  = f.input :credit_card, options_for_credit_card_select(@customer)
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to 'Cancel', user_customer_credit_cards_path(@user), :class => 'btn'
