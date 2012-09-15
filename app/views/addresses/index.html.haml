@@ -14,7 +14,7 @@
       %tr
         %td= address.full_name
         %td= address.company
-        %td= address.street_address
+        %td= link_to address.street_address, user_customer_address_path(@user, address.id)
         %td= address.extended_address
         %td
           = link_to 'Edit', edit_user_customer_address_path(@user, address.id), :class => 'btn btn-mini'
