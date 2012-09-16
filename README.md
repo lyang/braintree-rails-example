@@ -1,3 +1,13 @@
+Changes made to use TR (transparent redirect)
+===============
+1. Force the form url to use Braintree::TransparentRedirect.url
+
+2. Force the form method to :post, as by default rails uses :put (hidden field) for updating resources, which will be rejected by Braintree's gateway in the TR scenario.
+
+3. Added two actions accessbile through GET, as the TR's redirect_url
+
+4. Some other very minor changes
+
 braintree-rails-example
 ===============
 [braintree-rails-example](https://github.com/lyang/braintree-rails-example) provides a demo rails application that uses [braintree-rails](https://github.com/lyang/braintree-rails) gem to interact with Braintree api.
