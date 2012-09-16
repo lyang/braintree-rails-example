@@ -1,6 +1,7 @@
 class CreditCardsController < ApplicationController
   before_filter :find_user, :find_customer
-  before_filter :find_credit_card, :except => [:new, :create]
+  before_filter :find_credit_card, :except => [:new, :create, :tr_update]
+  before_filter :parse_tr_data, :only => [:tr_update, :tr_create]
   
   def index
     @credit_cards = @customer.credit_cards    
@@ -36,6 +37,24 @@ class CreditCardsController < ApplicationController
     redirect_to user_customer_credit_cards_path(@user)
   end
 
+  def tr_update
+    if @credit_card.persisted?
+      flash[:notice] = "Credit card has been successfully updated."
+      redirect_to user_customer_credit_card_path(@user, @credit_card.id) and return
+    else
+      render :edit
+    end
+  end
+
+  def tr_create
+    if @credit_card.persisted?
+      flash[:notice] = "Credit card has been successfully created."
+      redirect_to user_customer_credit_card_path(@user, @credit_card.id) and return
+    else
+      render :new
+    end
+  end
+
   protected
   def find_user
     @user = User.find(params[:user_id])
@@ -48,5 +67,15 @@ class CreditCardsController < ApplicationController
 
   def find_credit_card
     @credit_card = @customer.credit_cards.find(params[:id])
+  end
+
+  def parse_tr_data
+    result = Braintree::TransparentRedirect.confirm(request.query_string)
+    if result.success?
+      @credit_card = BraintreeRails::CreditCard.new(result.credit_card)
+    else
+      @credit_card = BraintreeRails::CreditCard.new(result.params[:credit_card])
+      @credit_card.add_errors(result.errors)
+    end
   end
 end

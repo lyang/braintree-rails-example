@@ -1,4 +1,5 @@
-= simple_form_for @credit_card, :url => url, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @credit_card, :url => url, :html => { :class => 'form-horizontal', :method => :post } do |f|
+  = hidden_field_tag(:tr_data, braintree_tr_data)
   = f.input :number if @credit_card.new_record?
   = f.input :cardholder_name
   = f.input :cvv, :maxlength => 4, :label => 'CVV'

@@ -1,4 +1,18 @@
 module CreditCardsHelper
+  def braintree_tr_data
+    if @credit_card.persisted?
+      Braintree::TransparentRedirect.update_credit_card_data(
+        :redirect_url => tr_update_user_customer_credit_card_url(@user, @credit_card.id),
+        :payment_method_token => @credit_card.token
+      )
+    else
+      Braintree::TransparentRedirect.create_credit_card_data(
+        :redirect_url => tr_create_user_customer_credit_cards_url(@user),
+        :credit_card => {:customer_id => @customer.id}
+      )
+    end
+  end
+
   def options_for_country_select
     {
       :collection => available_countries,

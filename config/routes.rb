@@ -2,11 +2,19 @@ BraintreeRailsExample::Application.routes.draw do
   resources :users do
     resource :customer do
       resources :credit_cards do
+        member { get :tr_update }
+        collection { get :tr_create }
         resources :transactions, :only => :index
       end
+
+      resources :transactions, :except => [:edit, :destroy] do
+        member { get :tr_update }
+        collection { get :tr_create }
+      end
+      
       resources :addresses
-      resources :transactions, :except => [:edit, :destroy]
     end
   end
+
   root :to => 'users#index'
 end
