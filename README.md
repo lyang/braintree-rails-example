@@ -10,8 +10,10 @@ The demo app has only one user model, with two columns, email and customer_id.
 
 All other models, Customer, CreditCard, Address are stored in Braintree's vault.
 
-Currently it uses Braintree's S2S (server to server) API.
+This branch uses Braintree's S2S (server to server) API, to demonstrate the capabilties of the [braintree-rails](https://github.com/lyang/braintree-rails-example) gem.
 
+Transparent redirect examples
+===============
 With very minimum changes, TR (transparent redirect) API can also be used.
 
 Check out the [transparent_redirect](https://github.com/lyang/braintree-rails-example/tree/transparent_redirect) branch for example.
