@@ -12,7 +12,9 @@ All other models, Customer, CreditCard, Address are stored in Braintree's vault.
 
 Currently it uses Braintree's S2S (server to server) API.
 
-Examples of TR (transparent redirect) will be added later.
+With very minimum changes, TR (transparent redirect) API can also be used.
+
+Check out the [transparent_redirect](https://github.com/lyang/braintree-rails-example/tree/transparent_redirect) branch for example.
 
 Instructions
 ===============
@@ -41,4 +43,14 @@ Notice
 ===============
 This IS NOT created or maintained by Braintree Payments
 
+Where the abstraction leaks
+===============
+To load transactions of a customer or credit card, one have to use Braintree's search API.
+
+What the search API returns is a lazy loading collection, which fires one API call for each item in the collection to load the full resource.
+
+When you have a large number of transactions for a customer, it could be very slow. So, use it with caution.
+
+Sandbox environment for testing
+===============
 You can get your sandbox env at https://www.braintreepayments.com/get-started
