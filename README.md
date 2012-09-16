@@ -16,7 +16,7 @@ Transparent redirect examples
 ===============
 With very minimum changes, TR (transparent redirect) API can also be used.
 
-Check out the [transparent_redirect](https://github.com/lyang/braintree-rails-example/tree/transparent_redirect) branch for example.
+Check out the [transparent_redirect](https://github.com/lyang/braintree-rails-example/tree/transparent_redirect#changes-made-to-use-tr-transparent-redirect) branch for example.
 
 Instructions
 ===============
