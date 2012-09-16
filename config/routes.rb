@@ -6,12 +6,7 @@ BraintreeRailsExample::Application.routes.draw do
         collection { get :tr_create }
         resources :transactions, :only => :index
       end
-
-      resources :transactions, :except => [:edit, :destroy] do
-        member { get :tr_update }
-        collection { get :tr_create }
-      end
-      
+      resources :transactions, :except => [:edit, :destroy]
       resources :addresses
     end
   end
