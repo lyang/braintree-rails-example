@@ -12,17 +12,13 @@ braintree-rails-example
 ===============
 [braintree-rails-example](https://github.com/lyang/braintree-rails-example) provides a demo rails application that uses [braintree-rails](https://github.com/lyang/braintree-rails) gem to interact with Braintree api.
 
-It demonstrates how [braintree-rails](https://github.com/lyang/braintree-rails-example) simplifies the interaction with reources stored in Braintree's vault.
+It demonstrates how [braintree-rails](https://github.com/lyang/braintree-rails-example) simplifies the interaction with resources stored in Braintree's vault.
 
 You can do most of the CRUD operations on the wrapped models just as if they are ActiveRecord.
 
 The demo app has only one user model, with two columns, email and customer_id.
 
 All other models, Customer, CreditCard, Address are stored in Braintree's vault.
-
-Currently it uses Braintree's S2S (server to server) API.
-
-Examples of TR (transparent redirect) will be added later.
 
 Instructions
 ===============
@@ -45,6 +41,7 @@ Then you need to edit config/braintree.rb to put in your Braintree sandbox crede
     # Braintree::Configuration.private_key = ''
 
 Then you can start the demo with
+
     rails s
     
 Notice
