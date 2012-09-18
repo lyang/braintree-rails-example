@@ -1,19 +1,16 @@
 class TransactionsController < ApplicationController
-  before_filter :find_user, :find_customer, :find_credit_card, :find_transaction_owner
-  before_filter :find_transaction, :except => [:new, :create]
+  before_filter :find_transactions
+  before_filter :find_transaction, :except => [:new, :create, :tr_create]
   before_filter :restricted_update, :only => :update
+  before_filter :parse_tr_data, :only => :tr_create
   helper_method :transaction_path, :transactions_path
   
-  def index
-    @transactions = @transaction_owner.transactions
-  end
-
   def new
-    @transaction = @transaction_owner.transactions.build(:amount => rand(1..25))
+    @transaction = @transactions.build(:amount => rand(1..25))
   end
 
   def create
-    @transaction = @transaction_owner.transactions.build(params[:transaction])
+    @transaction = @transactions.build(params[:transaction])
     if @transaction.save
       flash[:notice] = "Transaction has been successfully created."
       redirect_to transaction_path(@transaction)
@@ -32,34 +29,42 @@ class TransactionsController < ApplicationController
     redirect_to transactions_path
   end
 
-  protected
-  
-  def find_user
-    @user = User.find(params[:user_id]) if params[:user_id].present?
+  def tr_create
+    if @transaction.persisted?
+      flash[:notice] = "Transaction has been successfully created."
+      redirect_to transaction_path(@transaction) and return
+    else
+      render :new
+    end
   end
 
-  def find_customer
+  protected
+
+  def find_transactions
+    @user = User.find(params[:user_id]) if params[:user_id].present?
     @customer = BraintreeRails::Customer.find(@user.customer_id) if @user && @user.customer_id.present?
-  end
-  
-  def find_credit_card
     @credit_card = @customer.credit_cards.find(params[:credit_card_id]) if params[:credit_card_id].present?
-  end
-  
-  def find_transaction_owner
-    @transaction_owner ||= @credit_card
-    @transaction_owner ||= @customer
-    @transaction_owner ||= OpenStruct.new(:transactions => BraintreeRails::Transactions.new(nil))
+    @transactions = BraintreeRails::Transactions.new(@customer, @credit_card)
   end
 
   def find_transaction
-    @transaction = @transaction_owner.transactions.find(params[:id])
+    @transaction = @transactions.find(params[:id])
   end
 
   def restricted_update
     return true if ['submit_for_settlement', 'void', 'refund'].include?(params[:operation])
     flash[:alert] =  "Unknow operation: #{params[:operation]}!"
     redirect_to transactions_path and return
+  end
+  
+  def parse_tr_data
+    result = Braintree::TransparentRedirect.confirm(request.query_string)
+    if result.success?
+      @transaction = BraintreeRails::Transaction.new(result.transaction)
+    else
+      @transaction = BraintreeRails::Transaction.new(result.params[:transaction])
+      @transaction.add_errors(result.errors)
+    end
   end
 
   def transactions_path

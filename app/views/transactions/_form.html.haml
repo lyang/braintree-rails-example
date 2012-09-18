@@ -1,10 +1,11 @@
-= simple_form_for @transaction, :url => transactions_path, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @transaction, :url => create_transactions_path, :html => { :class => 'form-horizontal' } do |f|
   - if @credit_card
     = f.input :amount, :hint => @credit_card.masked_number
   - elsif @customer
     = f.input :amount
     = f.input :credit_card, options_for_credit_card_select(@customer)
   - else
+    = hidden_field_tag(:tr_data, braintree_tr_data)
     = f.input :amount
     = f.simple_fields_for :credit_card, @transaction.credit_card do |cc|
       = cc.input :number

@@ -1,4 +1,11 @@
 module TransactionsHelper
+  def braintree_tr_data
+    Braintree::TransparentRedirect.transaction_data(
+      :redirect_url => tr_create_transactions_url,
+      :transaction => {:type => "sale"}
+    )
+  end
+
   def options_for_credit_card_select(customer)
     {
       :collection => customer.credit_cards,
@@ -17,5 +24,9 @@ module TransactionsHelper
     path ||= user_customer_credit_card_path(@user, @credit_card.id) if @credit_card
     path ||= user_customer_path(@user) if @user
     path ||= users_path
+  end
+
+  def create_transactions_path
+    @customer.present? ? transactions_path : Braintree::TransparentRedirect.url
   end
 end

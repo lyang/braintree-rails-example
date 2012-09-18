@@ -10,6 +10,8 @@ BraintreeRailsExample::Application.routes.draw do
       resources :addresses
     end
   end
-  resources :transactions, :except => [:edit, :destroy]
+  resources :transactions, :except => [:edit, :destroy] do
+    collection { get :tr_create }
+  end
   root :to => 'users#index'
 end
