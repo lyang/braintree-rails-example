@@ -5,7 +5,7 @@
     = f.input :amount
     = f.input :credit_card, options_for_credit_card_select(@customer)
   - else
-    = hidden_field_tag(:tr_data, braintree_tr_data)
+    = hidden_field_tag(:tr_data, transaction_tr_data)
     = f.input :amount
     = f.simple_fields_for :credit_card, @transaction.credit_card do |cc|
       = cc.input :number

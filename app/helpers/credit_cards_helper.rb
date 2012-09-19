@@ -1,5 +1,5 @@
 module CreditCardsHelper
-  def braintree_tr_data
+  def credit_card_tr_data
     if @credit_card.persisted?
       Braintree::TransparentRedirect.update_credit_card_data(
         :redirect_url => tr_update_user_customer_credit_card_url(@user, @credit_card.id),

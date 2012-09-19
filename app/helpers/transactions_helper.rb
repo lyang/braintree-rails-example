@@ -1,5 +1,5 @@
 module TransactionsHelper
-  def braintree_tr_data
+  def transaction_tr_data
     Braintree::TransparentRedirect.transaction_data(
       :redirect_url => tr_create_transactions_url,
       :transaction => {:type => "sale"}
