@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   before_filter :find_user, :find_customer
-  before_filter :find_credit_card, :except => [:new, :create, :tr_update]
+  before_filter :find_credit_card, :except => [:index, :new, :create, :tr_create]
   before_filter :parse_tr_data, :only => [:tr_update, :tr_create]
   
   def index
@@ -74,7 +74,8 @@ class CreditCardsController < ApplicationController
     if result.success?
       @credit_card = BraintreeRails::CreditCard.new(result.credit_card)
     else
-      @credit_card = BraintreeRails::CreditCard.new(result.params[:credit_card])
+      @credit_card ||= BraintreeRails::CreditCard.new({})
+      @credit_card.assign_attributes(result.params[:credit_card])
       @credit_card.add_errors(result.errors)
     end
   end

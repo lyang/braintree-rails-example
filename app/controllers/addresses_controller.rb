@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_filter :find_user, :find_customer
-  before_filter :find_address, :except => [:new, :create]
+  before_filter :find_address, :except => [:index, :new, :create]
   
   def index
     @addresses = @customer.addresses    

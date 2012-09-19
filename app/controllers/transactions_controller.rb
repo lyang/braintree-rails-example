@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   before_filter :find_transactions
-  before_filter :find_transaction, :except => [:new, :create, :tr_create]
+  before_filter :find_transaction, :except => [:index, :new, :create, :tr_create]
   before_filter :restricted_update, :only => :update
   before_filter :parse_tr_data, :only => :tr_create
   helper_method :transaction_path, :transactions_path
