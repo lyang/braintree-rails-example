@@ -1,14 +1,17 @@
 module CreditCardsHelper
   def credit_card_tr_data
+    credit_card_options = {:options => {:verify_card => true}}
     if @credit_card.persisted?
+      credit_card_options.merge!(:billing_address => {:options => {:update_existing => true}}) if @credit_card.billing_address.persisted?
       Braintree::TransparentRedirect.update_credit_card_data(
         :redirect_url => tr_update_user_customer_credit_card_url(@user, @credit_card.id),
-        :payment_method_token => @credit_card.token
+        :payment_method_token => @credit_card.token,
+        :credit_card => credit_card_options
       )
     else
       Braintree::TransparentRedirect.create_credit_card_data(
         :redirect_url => tr_create_user_customer_credit_cards_url(@user),
-        :credit_card => {:customer_id => @customer.id}
+        :credit_card => credit_card_options.merge(:customer_id => @customer.id)
       )
     end
   end

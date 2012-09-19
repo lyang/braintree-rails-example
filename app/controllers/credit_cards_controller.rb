@@ -38,7 +38,7 @@ class CreditCardsController < ApplicationController
   end
 
   def tr_update
-    if @credit_card.persisted?
+    if @credit_card.errors.empty?
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card.id) and return
     else
@@ -47,7 +47,7 @@ class CreditCardsController < ApplicationController
   end
 
   def tr_create
-    if @credit_card.persisted?
+    if @credit_card.errors.empty?
       flash[:notice] = "Credit card has been successfully created."
       redirect_to user_customer_credit_card_path(@user, @credit_card.id) and return
     else
