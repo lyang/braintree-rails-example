@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
       flash[:notice] = "Transaction has been #{params[:operation]}."
     else
       flash[:alert] = @transaction.errors.full_messages.join("\n")
-    end    
+    end
     redirect_to transactions_path
   end
 

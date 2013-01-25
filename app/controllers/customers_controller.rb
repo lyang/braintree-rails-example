@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = BraintreeRails::Customer.build(params[:customer])
+    @customer = BraintreeRails::Customer.new(params[:customer])
     if @customer.save
       @user.update_attribute(:customer_id, @customer.id)
       flash[:notice] = "Customer has been successfully created."
