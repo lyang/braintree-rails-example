@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/lyang/braintree-rails.git
-  revision: 95505db64ba94d059a703382461f32e53424c793
+  revision: 54430ab75fddc666ba5e022102497c0bda76de83
   specs:
     braintree-rails (0.4.1)
       activemodel (>= 3.0)
@@ -75,6 +75,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -142,6 +143,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   haml-rails
   jquery-rails
+  pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   simple_form
