@@ -23,27 +23,27 @@ All other models, Customer, CreditCard, Address are stored in Braintree's vault.
 Instructions
 ===============
 Clone the repo
-    
+
     git clone git://github.com/lyang/braintree-rails-example.git
     bundle install
-    
+
 Setup the database
-    
+
     rake db:migrate
-    
+
 Then you need to edit config/braintree.rb to put in your Braintree sandbox credentials
-    
+
     Braintree::Configuration.environment = :sandbox
     Braintree::Configuration.logger = Logger.new('log/braintree.log')
 
-    # Braintree::Configuration.merchant_id = ''
-    # Braintree::Configuration.public_key = ''
-    # Braintree::Configuration.private_key = ''
+    Braintree::Configuration.merchant_id = ENV['MERCHANT_ID']
+    Braintree::Configuration.public_key = ENV['PUBLIC_KEY']
+    Braintree::Configuration.private_key = ENV['PRIVATE_KEY']
 
 Then you can start the demo with
 
     rails s
-    
+
 Notice
 ===============
 This IS NOT created or maintained by Braintree Payments
