@@ -1,9 +1,9 @@
 class AddressesController < ApplicationController
   before_filter :find_user, :find_customer
   before_filter :find_address, :except => [:new, :create]
-  
+
   def index
-    @addresses = @customer.addresses    
+    @addresses = @customer.addresses
   end
 
   def new
@@ -27,7 +27,7 @@ class AddressesController < ApplicationController
       redirect_to user_customer_address_path(@user, @address.id) and return
     else
       render :edit
-    end    
+    end
   end
 
   def destroy

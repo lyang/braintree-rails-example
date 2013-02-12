@@ -1,9 +1,9 @@
 class CreditCardsController < ApplicationController
   before_filter :find_user, :find_customer
   before_filter :find_credit_card, :except => [:new, :create]
-  
+
   def index
-    @credit_cards = @customer.credit_cards    
+    @credit_cards = @customer.credit_cards
   end
 
   def new
@@ -27,7 +27,7 @@ class CreditCardsController < ApplicationController
       redirect_to user_customer_credit_card_path(@user, @credit_card.id) and return
     else
       render :edit
-    end    
+    end
   end
 
   def destroy
