@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+a.github {
+  position: relative;
+  float: right;
+}
+
+a.github img {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border: 0;
+}
