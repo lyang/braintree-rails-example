@@ -38,13 +38,14 @@
             = yield
           .span3
             .well.sidebar-nav
+              %a.github{:href => "https://github.com/lyang/braintree-rails"}
+                %img{:alt => "Fork me on GitHub", :src => "https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"}
               %h3 Sidebar
               %ul.nav.nav-list
                 %li.nav-header Sidebar
                 %li= link_to "Users", users_path
                 %li= link_to "Transactions", transactions_path
                 %li= link_to "Source Code", "https://github.com/lyang/braintree-rails-example"
-    
       %footer
         %p &copy; Company 2012
     /

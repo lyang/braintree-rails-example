@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   before_filter :restricted_update, :only => :update
   before_filter :parse_tr_data, :only => :tr_create
   helper_method :transaction_path, :transactions_path
-  
+
   def new
     @transaction = @transactions.build(:amount => rand(1..25))
   end
@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
       flash[:notice] = "Transaction has been #{params[:operation]}."
     else
       flash[:alert] = @transaction.errors.full_messages.join("\n")
-    end    
+    end
     redirect_to transactions_path
   end
 
@@ -56,7 +56,7 @@ class TransactionsController < ApplicationController
     flash[:alert] =  "Unknow operation: #{params[:operation]}!"
     redirect_to transactions_path and return
   end
-  
+
   def parse_tr_data
     result = Braintree::TransparentRedirect.confirm(request.query_string)
     if result.success?
