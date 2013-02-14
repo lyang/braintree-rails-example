@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/lyang/braintree-rails.git
-  revision: 6c397d9b857eacebb823066e2cf1d6677edf0f44
+  revision: b00225fdd4f31b87dd4ad2d5ea179626a1617966
   specs:
     braintree-rails (0.4.3)
       activemodel (>= 3.0)
