@@ -75,6 +75,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.6.0)
+    newrelic_rpm (3.5.7.59)
     pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
@@ -143,6 +144,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   haml-rails
   jquery-rails
+  newrelic_rpm
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
