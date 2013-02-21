@@ -11,12 +11,17 @@ class AddressesController < ApplicationController
     @address = @customer.addresses.build({:cardholder_name => @customer.full_name, :billing_address => billing_address})
   end
 
+  def edit; end
+
+  def show; end
+
   def create
     @address = @customer.addresses.build(params[:address])
     if @address.save
       flash[:notice] = "Address has been successfully created."
       redirect_to user_customer_address_path(@user, @address.id)
     else
+      flash[:alert] = @address.errors.full_messages.join("\n")
       render :new
     end
   end
@@ -26,6 +31,7 @@ class AddressesController < ApplicationController
       flash[:notice] = "Address has been successfully updated."
       redirect_to user_customer_address_path(@user, @address.id) and return
     else
+      flash[:alert] = @address.errors.full_messages.join("\n")
       render :edit
     end
   end

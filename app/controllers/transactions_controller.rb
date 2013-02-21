@@ -4,6 +4,10 @@ class TransactionsController < ApplicationController
   before_filter :restricted_update, :only => :update
   helper_method :transaction_path, :transactions_path
 
+  def index; end
+
+  def show; end
+
   def new
     @transaction = @transactions.build(:amount => rand(1..25))
   end
@@ -14,7 +18,7 @@ class TransactionsController < ApplicationController
       flash[:notice] = "Transaction has been successfully created."
       redirect_to transaction_path(@transaction)
     else
-      flash.now[:alert] = @transaction.errors.full_messages.join("\n")
+      flash[:alert] = @transaction.errors.full_messages.join("\n")
       render :new
     end
   end
@@ -31,10 +35,14 @@ class TransactionsController < ApplicationController
   protected
 
   def find_transactions
-    @user = User.find(params[:user_id]) if params[:user_id].present?
-    @customer = BraintreeRails::Customer.find(@user.customer_id) if @user && @user.customer_id.present?
-    @credit_card = @customer.credit_cards.find(params[:credit_card_id]) if params[:credit_card_id].present?
-    @transactions = BraintreeRails::Transactions.new(@customer, @credit_card)
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @customer = BraintreeRails::Customer.find(@user.customer_id) if @user && @user.customer_id.present?
+      @credit_card = @customer.credit_cards.find(params[:credit_card_id]) if params[:credit_card_id].present?
+      @transactions = @credit_card.present? ? @credit_card.transactions : @customer.transactions
+    else
+      @transactions = BraintreeRails::Transactions.new(nil)
+    end
   end
 
   def find_transaction

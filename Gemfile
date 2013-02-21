@@ -6,7 +6,7 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'carmen-rails'
 
-gem 'braintree-rails', :git => "git://github.com/lyang/braintree-rails.git"
+gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

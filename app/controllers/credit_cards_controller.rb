@@ -11,12 +11,17 @@ class CreditCardsController < ApplicationController
     @credit_card = @customer.credit_cards.build({:cardholder_name => @customer.full_name, :billing_address => billing_address})
   end
 
+  def edit; end
+
+  def show; end
+
   def create
     @credit_card = @customer.credit_cards.build(params[:credit_card])
     if @credit_card.save
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card.id)
     else
+      flash[:alert] = @credit_card.errors.full_messages.join("\n")
       render :new
     end
   end
@@ -26,6 +31,7 @@ class CreditCardsController < ApplicationController
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card.id) and return
     else
+      flash[:alert] = @credit_card.errors.full_messages.join("\n")
       render :edit
     end
   end
