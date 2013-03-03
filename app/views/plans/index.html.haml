@@ -1,0 +1,16 @@
+- model_class = BraintreeRails::Plan
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:price)
+  %tbody
+    - @plans.each do |plan|
+      %tr
+        %td= link_to plan.id, plan_path(plan.id)
+        %td= plan.name
+        %td= plan.price
+= link_to 'Back', root_path, :class => 'btn'

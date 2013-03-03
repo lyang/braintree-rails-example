@@ -1,0 +1,16 @@
+- model_class = BraintreeRails::AddOn
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:amount)
+  %tbody
+    - @add_ons.each do |add_on|
+      %tr
+        %td= link_to add_on.id, add_on_path(add_on.id)
+        %td= add_on.name
+        %td= add_on.amount
+= link_to 'Back', root_path, :class => 'btn'

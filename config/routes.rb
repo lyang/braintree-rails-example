@@ -9,5 +9,8 @@ BraintreeRailsExample::Application.routes.draw do
     end
   end
   resources :transactions, :except => [:edit, :destroy]
+  resources :plans, :only => [:index, :show]
+  resources :add_ons, :only => [:index, :show]
+  resources :discounts, :only => [:index, :show]
   root :to => 'users#index'
 end

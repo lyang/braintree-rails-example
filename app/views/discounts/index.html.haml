@@ -1,0 +1,16 @@
+- model_class = BraintreeRails::Discount
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:amount)
+  %tbody
+    - @discounts.each do |discount|
+      %tr
+        %td= link_to discount.id, discount_path(discount.id)
+        %td= discount.name
+        %td= discount.amount
+= link_to 'Back', root_path, :class => 'btn'

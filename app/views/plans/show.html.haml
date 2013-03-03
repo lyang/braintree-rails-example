@@ -1,0 +1,12 @@
+- model_class = BraintreeRails::Plan
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+- @plan.attributes.each do |attribute, value|
+  - next unless value.present?
+  %p
+    %strong= model_class.human_attribute_name(attribute) + ':'
+    %br
+    = @plan.send(attribute)
+
+.form-actions
+  = link_to 'Back', plans_path, :class => 'btn'

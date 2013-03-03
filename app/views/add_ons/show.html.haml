@@ -1,0 +1,12 @@
+- model_class = BraintreeRails::AddOn
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+- @add_on.attributes.each do |attribute, value|
+  - next unless value.present?
+  %p
+    %strong= model_class.human_attribute_name(attribute) + ':'
+    %br
+    = @add_on.send(attribute)
+
+.form-actions
+  = link_to 'Back', add_ons_path, :class => 'btn'
