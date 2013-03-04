@@ -1,0 +1,23 @@
+- model_class = BraintreeRails::Subscription
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:price)
+      %th= model_class.human_attribute_name(:status)
+      %th= model_class.human_attribute_name(:balance)
+      %th= 'Actions'
+  %tbody
+    - @subscriptions.each do |subscription|
+      %tr
+        %td= link_to subscription.id, subscription_path(subscription)
+        %td= subscription.price
+        %td= subscription.status
+        %td= subscription.balance
+        %td
+          = link_to 'Edit', edit_subscription_path(subscription), :class => 'btn btn-mini'
+          = link_to 'Destroy', subscription_path(subscription), :method => :delete, :class => 'btn btn-mini btn-danger'
+= link_to 'Back', back_path, :class => 'btn'
+= link_to 'New', new_subscription_path, :class => 'btn btn-primary' if @customer.present?
