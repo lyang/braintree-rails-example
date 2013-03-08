@@ -53,9 +53,9 @@ Then you can start the demo with
 
     rails s
 
-Notice
+Todo
 ===============
-This IS NOT created or maintained by Braintree Payments
+Deprecating TR branch in favor of Braintree.js implementations
 
 Sandbox environment for testing
 ===============
