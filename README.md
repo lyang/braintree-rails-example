@@ -55,7 +55,7 @@ Then you can start the demo with
 
 Todo
 ===============
-Deprecating TR branch in favor of Braintree.js implementations
+Deprecating both S2S and TR branch in favor of Braintree.js implementations.
 
 Sandbox environment for testing
 ===============
