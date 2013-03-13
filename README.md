@@ -1,36 +1,13 @@
-braintree-rails-example
-===============
-[braintree-rails-example](https://github.com/lyang/braintree-rails-example) provides a demo rails application that uses [braintree-rails](https://github.com/lyang/braintree-rails) gem to interact with Braintree api.
+# Welcome to braintree-rails-example
+[braintree-rails-example](https://github.com/lyang/braintree-rails-example) is a demo rails app that uses [braintree-rails](https://github.com/lyang/braintree-rails) gem to intergrate with Braintree payment api.
 
-It demonstrates how [braintree-rails](https://github.com/lyang/braintree-rails-example) simplifies the interaction with resources stored in Braintree's vault.
+This demo app shows how [braintree-rails](https://github.com/lyang/braintree-rails-example) simplified the code you needed in model/view/controller.
 
-You can do most of the CRUD operations on the wrapped models just as if they are ActiveRecord.
+With the "railsy" models [braintree-rails](https://github.com/lyang/braintree-rails) provides, you can use them exactly "the rails way" as you would with any other ActiveRecord object.
 
-The demo app has only one user model, with two columns, email and customer_id.
+In addition, the app uses Braintree.js for credit card data encryption. It helps you greatly reduce the PCI scope while keeps the flexibility.
 
-All other models, Customer, CreditCard, Address are stored in Braintree's vault.
-
-Master branch uses Braintree's S2S (server to server) API, to demonstrate the capabilties of the [braintree-rails](https://github.com/lyang/braintree-rails-example) gem.
-
-Transparent redirect examples
-===============
-With very minimum changes, TR (transparent redirect) API can also be used.
-
-Check out the [transparent_redirect](https://github.com/lyang/braintree-rails-example/tree/transparent_redirect#changes-made-to-use-tr-transparent-redirect) branch for example.
-
-Live demo
-===============
-You can play with the live demo at [here](http://braintree-rails-example.herokuapp.com/).
-
-**Caultion**
-The live demo is for public demo purpose only.
-
-**DO NOT** put any important or sensitive info in this demo.
-
-It will be purged periodically.
-
-Instructions
-===============
+## Instructions
 Clone the repo
 
     git clone git://github.com/lyang/braintree-rails-example.git
@@ -53,10 +30,15 @@ Then you can start the demo with
 
     rails s
 
-Todo
-===============
-Deprecating both S2S and TR branch in favor of Braintree.js implementations.
+## Live demo
+You can play with the live demo at [here](http://braintree-rails-example.herokuapp.com/).
 
-Sandbox environment for testing
-===============
+**Caultion**
+The live demo is for public demo purpose only.
+
+**DO NOT** put any important or sensitive info in this demo.
+
+It will be purged periodically.
+
+## Sandbox environment for testing
 You can get your sandbox env at https://www.braintreepayments.com/get-started
