@@ -1,4 +1,4 @@
-= simple_form_for @transaction, :url => transactions_path, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @transaction, :url => transactions_path, :html => { :id => 'braintree-transaction-form', :class => 'form-horizontal' } do |f|
   - if @credit_card
     = f.input :amount, :hint => @credit_card.masked_number
   - elsif @customer
@@ -7,11 +7,11 @@
   - else
     = f.input :amount
     = f.simple_fields_for :credit_card, @transaction.credit_card do |cc|
-      = cc.input :number
+      = cc.input :number, :input_html => { 'data-encrypted-name' => true }
       = cc.input :cardholder_name
-      = cc.input :cvv, :maxlength => 4, :label => 'CVV'
-      = cc.input :expiration_month, options_for_month_select
-      = cc.input :expiration_year, options_for_year_select
+      = cc.input :cvv, :maxlength => 4, :label => 'CVV', :input_html => { 'data-encrypted-name' => true }
+      = cc.input :expiration_month, options_for_month_select.merge(:input_html => { 'data-encrypted-name' => true })
+      = cc.input :expiration_year, options_for_year_select.merge(:input_html => { 'data-encrypted-name' => true })
     = f.simple_fields_for :billing, @transaction.billing do |ba|
       = ba.input :first_name
       = ba.input :last_name

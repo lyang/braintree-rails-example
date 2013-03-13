@@ -68,14 +68,14 @@ class SubscriptionsController < ApplicationController
 
   def subscriptions_path
     path ||= user_customer_credit_card_subscriptions_path(@user, @credit_card.id) if @credit_card
-    path ||= plan_subscriptions_path(@plan) if @plan
+    path ||= plan_subscriptions_path(@plan.id) if @plan
     path ||= super
   end
 
 
   def subscription_path(subscription, options={})
     path ||= user_customer_credit_card_subscription_path(@user, @credit_card.id, subscription.id, options) if @credit_card
-    path ||= plan_subscription_path(@plan, subscription.id, options) if @plan
+    path ||= plan_subscription_path(@plan.id, subscription.id, options) if @plan
     path ||= super(subscription.id, options)
   end
 end
