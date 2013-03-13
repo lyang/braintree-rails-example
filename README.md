@@ -1,3 +1,18 @@
+## Deprecated (March 12, 2013) ##
+Braintree.js is out, it's time to deprecate TR implementations.
+
+While TR is great in that it helped reducing a great amount of effort to be PCI compliant, it is also a chatty implementation.
+
+It needs more http requests, which isn't ideal, especially for mobile users.
+
+And, as a developer, I find it doable, but hard, to write reliable tests.
+
+Braintree.js has the best of the two old ways. It gives you the flexibility of S2S with the benefits of greatly reduced PCI compliant scope.
+
+The master branch has an example Braintree.js implementation, check it out and enjoy.
+
+This TR implementation will be deprecated.
+
 Changes made to use TR (transparent redirect)
 ===============
 1. Force the form url to use Braintree::TransparentRedirect.url
