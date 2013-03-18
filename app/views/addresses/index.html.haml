@@ -14,11 +14,11 @@
       %tr
         %td= address.full_name
         %td= address.company
-        %td= link_to address.street_address, user_customer_address_path(@user, address.id)
+        %td= link_to address.street_address, user_customer_address_path(@user, address)
         %td= address.extended_address
         %td
-          = link_to 'Edit', edit_user_customer_address_path(@user, address.id), :class => 'btn btn-mini'
-          = link_to 'Destroy', user_customer_address_path(@user, address.id), :method => :delete, :confirm =>'Are you sure?', :class => 'btn btn-mini btn-danger'
+          = link_to 'Edit', edit_user_customer_address_path(@user, address), :class => 'btn btn-mini'
+          = link_to 'Destroy', user_customer_address_path(@user, address), :method => :delete, :confirm =>'Are you sure?', :class => 'btn btn-mini btn-danger'
 
 = link_to 'Back', user_customer_path(@user), :class => 'btn'
 = link_to 'New', new_user_customer_address_path(@user), :class => 'btn btn-primary'

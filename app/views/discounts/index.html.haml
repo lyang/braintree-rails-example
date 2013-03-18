@@ -10,7 +10,7 @@
   %tbody
     - @discounts.each do |discount|
       %tr
-        %td= link_to discount.id, discount_path(discount.id)
+        %td= link_to discount.id, discount_path(discount)
         %td= discount.name
         %td= discount.amount
 = link_to 'Back', root_path, :class => 'btn'

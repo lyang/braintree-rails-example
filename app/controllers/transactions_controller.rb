@@ -56,15 +56,15 @@ class TransactionsController < ApplicationController
   end
 
   def transactions_path
-    path ||= user_customer_credit_card_transactions_path(@user, @credit_card.id) if @credit_card
+    path ||= user_customer_credit_card_transactions_path(@user, @credit_card) if @credit_card
     path ||= user_customer_transactions_path(@user) if @user
     path ||= super
   end
 
 
   def transaction_path(transaction, options={})
-    path ||= user_customer_credit_card_transaction_path(@user, @credit_card.id, transaction.id, options) if @credit_card
-    path ||= user_customer_transaction_path(@user, transaction.id, options) if @user
-    path ||= super(transaction.id, options)
+    path ||= user_customer_credit_card_transaction_path(@user, @credit_card, transaction, options) if @credit_card
+    path ||= user_customer_transaction_path(@user, transaction, options) if @user
+    path ||= super(transaction, options)
   end
 end

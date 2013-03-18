@@ -1,4 +1,4 @@
 - model_class = BraintreeRails::Address
 .page-header
   %h1="Edit #{model_class.model_name.human}"
-= render :partial => "form", :locals => {:url => user_customer_address_path(@user, @address.id)}
+= render :partial => "form", :locals => {:url => user_customer_address_path(@user, @address)}

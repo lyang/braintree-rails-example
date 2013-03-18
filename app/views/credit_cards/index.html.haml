@@ -13,12 +13,12 @@
     - @credit_cards.each do |credit_card|
       %tr
         %td= credit_card.card_type
-        %td= link_to credit_card.masked_number, user_customer_credit_card_path(@user, credit_card.id)
+        %td= link_to credit_card.masked_number, user_customer_credit_card_path(@user, credit_card)
         %td= credit_card.cardholder_name
         %td= credit_card.expiration_date
         %td
-          = link_to 'Edit', edit_user_customer_credit_card_path(@user, credit_card.id), :class => 'btn btn-mini'
-          = link_to 'Destroy', user_customer_credit_card_path(@user, credit_card.id), :method => :delete, :confirm =>'Are you sure?', :class => 'btn btn-mini btn-danger'
+          = link_to 'Edit', edit_user_customer_credit_card_path(@user, credit_card), :class => 'btn btn-mini'
+          = link_to 'Destroy', user_customer_credit_card_path(@user, credit_card), :method => :delete, :confirm =>'Are you sure?', :class => 'btn btn-mini btn-danger'
 
 = link_to 'Back', user_customer_path(@user), :class => 'btn'
 = link_to 'New', new_user_customer_credit_card_path(@user), :class => 'btn btn-primary'

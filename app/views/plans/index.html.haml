@@ -10,7 +10,7 @@
   %tbody
     - @plans.each do |plan|
       %tr
-        %td= link_to plan.id, plan_path(plan.id)
+        %td= link_to plan.id, plan_path(plan)
         %td= plan.name
         %td= plan.price
 = link_to 'Back', root_path, :class => 'btn'

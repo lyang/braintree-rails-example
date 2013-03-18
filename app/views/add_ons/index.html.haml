@@ -10,7 +10,7 @@
   %tbody
     - @add_ons.each do |add_on|
       %tr
-        %td= link_to add_on.id, add_on_path(add_on.id)
+        %td= link_to add_on.id, add_on_path(add_on)
         %td= add_on.name
         %td= add_on.amount
 = link_to 'Back', root_path, :class => 'btn'

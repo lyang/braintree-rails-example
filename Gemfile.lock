@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/lyang/braintree-rails.git
-  revision: 6182e43c8714c4a2b984cf9d6c0d36ccf7f556aa
+  revision: 98aa521dce5373e63dc6acd393658ab55e96e2ff
   branch: master
   specs:
     braintree-rails (1.0.0)
@@ -76,7 +76,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
-    multi_json (1.6.1)
+    multi_json (1.7.0)
     newrelic_rpm (3.5.8.70)
     pg (0.14.1)
     polyglot (0.3.3)

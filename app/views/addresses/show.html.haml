@@ -9,5 +9,5 @@
 
 .form-actions
   = link_to 'Back', user_customer_addresses_path(@user), :class => 'btn'
-  = link_to 'Edit', edit_user_customer_address_path(@user, @address.id), :class => 'btn'
-  = link_to 'Destroy', user_customer_address_path(@user, @address.id), :method => "delete", :confirm => 'Are you sure?', :class => 'btn btn-danger'
+  = link_to 'Edit', edit_user_customer_address_path(@user, @address), :class => 'btn'
+  = link_to 'Destroy', user_customer_address_path(@user, @address), :method => "delete", :confirm => 'Are you sure?', :class => 'btn btn-danger'
