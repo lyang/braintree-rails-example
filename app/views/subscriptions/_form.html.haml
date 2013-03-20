@@ -12,7 +12,7 @@
       .controls
         %p#subscription_credit_card.string.optional= @credit_card.masked_number
   - else
-    = f.input :payment_method_token, options_for_credit_card_select(@customer)
+    = f.input :payment_method_token, options_for_credit_card_select(@customer || @subscription.credit_card.customer)
   = f.input :id
   = f.input :price
   .form-actions
