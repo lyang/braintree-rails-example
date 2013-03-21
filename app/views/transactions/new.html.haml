@@ -5,5 +5,5 @@
 
 - content_for :javascript do
   :javascript
-    var braintree = Braintree.create("MIIBCgKCAQEA9GuI+/Iwdcnjf/quwPnhu2gbtptKWoYkS2QjnCU/k4plR9uTWbLAMKOQ0TGmr/AU65Urieqc5HM6x7ZH5+OvHBEeD0TVIDxrhBGpX/pkVfm91QNK0QGBHjIY8scRfyYR+u8SxuPNs/b0wedYhNwxxDIY/Ju2MynTBn8UDv4OTy8hHj5zEiVrcuVCghCsyxLo8RWJOzM5XUmD6bD0SnAJjrU15G4VSsyTij0sdhPmX/mkMUbWVkdRdyp1oEXWgRbRTr1LA2VP7l8IeatCjlljxRef9xHmXAmrUruyDtqsamepK1DtOgJUwNuLL+OMxtiLX5dV22W0zy41slYFf9ykcwIDAQAB")
+    var braintree = Braintree.create("#{ENV["CLIENT_SIDE_ENCRYPTION_KEY"]}")
     braintree.onSubmitEncryptForm('braintree-transaction-form');
