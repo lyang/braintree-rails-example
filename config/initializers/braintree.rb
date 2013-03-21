@@ -1,3 +1,4 @@
+require 'rails_ext/tag_helper_ext'
 BraintreeRails::Configuration.environment = :sandbox
 BraintreeRails::Configuration.logger = Logger.new('log/braintree.log')
 BraintreeRails::Configuration.merchant_id = ENV['MERCHANT_ID']
