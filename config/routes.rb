@@ -16,5 +16,6 @@ BraintreeRailsExample::Application.routes.draw do
   resources :add_ons, :only => [:index, :show]
   resources :discounts, :only => [:index, :show]
   resources :subscriptions, :except => [:new, :create]
+  resources :history_events, :only => :index
   root :to => 'users#index'
 end

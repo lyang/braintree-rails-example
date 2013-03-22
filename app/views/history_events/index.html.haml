@@ -1,0 +1,19 @@
+- model_class = HistoryEvent
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:model)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= model_class.human_attribute_name(:data)
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.id
+        %td= event.model
+        %td= event.created_at
+        %td
+          %pre= PP.pp(event.data, "")
+= link_to 'Back', root_path, :class => 'btn'
