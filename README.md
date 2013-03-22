@@ -34,7 +34,7 @@ Then you can start the demo with
 You can play with the live demo at [here](http://braintree-rails-example.herokuapp.com/).
 
 **Caultion**
-The live demo is for public demo purpose only.
+The live demo is for public *demo purpose only*.
 
 **DO NOT** put any important or sensitive info in this demo.
 
