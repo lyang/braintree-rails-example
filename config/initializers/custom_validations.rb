@@ -1,3 +1,3 @@
-BraintreeRails::BillingAddressValidator::Validations = BraintreeRails::BillingAddressValidator::Validations.deep_dup
-BraintreeRails::BillingAddressValidator::Validations << [:country_code_numeric, :inclusion => {:in => ['124', '840']}]
-BraintreeRails::BillingAddressValidator.setup
+BraintreeRails::BillingAddressValidator.setup do |validations|
+  validations << [:country_name, :inclusion => { :in => ["Canada", "United States of America"], :message => "%{value} is not supported yet." }]
+end
