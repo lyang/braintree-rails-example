@@ -21,7 +21,7 @@ class CreditCardsController < ApplicationController
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card)
     else
-      flash[:alert] = @credit_card.errors.full_messages.join("\n")
+      flash[:alert] = @credit_card.errors.full_messages.join(".\n")
       render :new
     end
   end
@@ -31,7 +31,7 @@ class CreditCardsController < ApplicationController
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card) and return
     else
-      flash[:alert] = @credit_card.errors.full_messages.join("\n")
+      flash[:alert] = @credit_card.errors.full_messages.join(".\n")
       render :edit
     end
   end

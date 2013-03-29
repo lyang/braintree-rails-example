@@ -21,7 +21,7 @@ class AddressesController < ApplicationController
       flash[:notice] = "Address has been successfully created."
       redirect_to user_customer_address_path(@user, @address)
     else
-      flash[:alert] = @address.errors.full_messages.join("\n")
+      flash[:alert] = @address.errors.full_messages.join(".\n")
       render :new
     end
   end
@@ -31,7 +31,7 @@ class AddressesController < ApplicationController
       flash[:notice] = "Address has been successfully updated."
       redirect_to user_customer_address_path(@user, @address) and return
     else
-      flash[:alert] = @address.errors.full_messages.join("\n")
+      flash[:alert] = @address.errors.full_messages.join(".\n")
       render :edit
     end
   end

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/lyang/braintree-rails.git
-  revision: 343ee383ef2e9ba5fd1586d22deba5cba599badf
+  revision: 5a3e493f52b4e8cda8de66d227aeb0761dffcdd4
   branch: master
   specs:
     braintree-rails (1.0.0)

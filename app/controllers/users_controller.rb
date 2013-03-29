@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
     else
-      flash[:alert] = @user.errors.full_messages.join("\n")
+      flash[:alert] = @user.errors.full_messages.join(".\n")
       render action: "new"
     end
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       redirect_to @user, notice: 'User was successfully updated.'
     else
-      flash[:alert] = @user.errors.full_messages.join("\n")
+      flash[:alert] = @user.errors.full_messages.join(".\n")
       render action: "edit"
     end
   end

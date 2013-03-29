@@ -19,7 +19,7 @@ class SubscriptionsController < ApplicationController
       flash[:notice] = "Subscription has been successfully created."
       redirect_to subscription_path(@subscription)
     else
-      flash[:alert] = @subscription.errors.full_messages.join("\n")
+      flash[:alert] = @subscription.errors.full_messages.join(".\n")
       render :new
     end
   end
@@ -29,7 +29,7 @@ class SubscriptionsController < ApplicationController
       flash[:notice] = "Customer has been successfully updated."
       redirect_to subscription_path(@subscription) and return
     else
-      flash[:alert] = @subscription.errors.full_messages.join("\n")
+      flash[:alert] = @subscription.errors.full_messages.join(".\n")
       render :edit
     end
   end

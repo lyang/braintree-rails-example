@@ -14,3 +14,4 @@ jQuery ->
     else
       $('#credit_card_billing_address_region').empty()
       $('#credit_card_billing_address_region').parent().parent().hide()
+  $('#credit_card_billing_address_country_code_alpha2').change()

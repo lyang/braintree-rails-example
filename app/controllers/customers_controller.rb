@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
       flash[:notice] = "Customer has been successfully created."
       redirect_to user_customer_path(@user) and return
     else
-      flash[:alert] = @customer.errors.full_messages.join("\n")
+      flash[:alert] = @customer.errors.full_messages.join(".\n")
       render :new
     end
   end
@@ -31,7 +31,7 @@ class CustomersController < ApplicationController
       flash[:notice] = "Customer has been successfully updated."
       redirect_to user_customer_path(@user) and return
     else
-      flash[:alert] = @customer.errors.full_messages.join("\n")
+      flash[:alert] = @customer.errors.full_messages.join(".\n")
       render :edit
     end
   end

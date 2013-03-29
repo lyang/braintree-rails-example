@@ -10,7 +10,7 @@
   %p
     %strong= BraintreeRails::Address.human_attribute_name(billing_address_attribute) + ':'
     %br
-    = @credit_card.billing_address.send(billing_address_attribute)
+    = @credit_card.billing_address.send(billing_address_attribute) if @credit_card.billing_address
 
 .form-actions
   = link_to 'Back', user_customer_credit_cards_path(@user), :class => 'btn'

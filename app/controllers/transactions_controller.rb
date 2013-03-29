@@ -18,7 +18,7 @@ class TransactionsController < ApplicationController
       flash[:notice] = "Transaction has been successfully created."
       redirect_to transaction_path(@transaction)
     else
-      flash[:alert] = @transaction.errors.full_messages.join("\n")
+      flash[:alert] = @transaction.errors.full_messages.join(".\n")
       render :new
     end
   end
@@ -27,7 +27,7 @@ class TransactionsController < ApplicationController
     if @transaction.send(params[:operation])
       flash[:notice] = "Transaction has been #{params[:operation]}."
     else
-      flash[:alert] = @transaction.errors.full_messages.join("\n")
+      flash[:alert] = @transaction.errors.full_messages.join(".\n")
     end
     redirect_to transactions_path
   end

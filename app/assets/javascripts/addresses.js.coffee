@@ -14,3 +14,4 @@ jQuery ->
     else
       $('#address_region').empty()
       $('#address_region').parent().parent().hide()
+  $('#address_country_code_alpha2').change()

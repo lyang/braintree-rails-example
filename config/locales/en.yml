@@ -2,4 +2,25 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activemodel:
+    attributes:
+      braintree_rails/address:
+        locality: "City"
+        country_name: "Country"
+        country_code_alpha2: "Country"
+        country_code_alpha3: "Country"
+        country_code_numeric: "Country"
+      braintree_rails/credit_card:
+        cvv: "CVV"
+    errors:
+      models:
+        braintree_rails/address:
+          attributes:
+            country_name:
+              inclusion: "%{value} is not supported yet."
+            country_code_alpha2:
+              inclusion: "%{value} is not supported yet."
+            country_code_alpha3:
+              inclusion: "%{value} is not supported yet."
+            country_code_numeric:
+              inclusion: "%{value} is not supported yet."
