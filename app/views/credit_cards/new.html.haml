@@ -5,5 +5,5 @@
 
 - content_for :javascript do
   :javascript
-    var braintree = Braintree.create("#{ENV["CLIENT_SIDE_ENCRYPTION_KEY"]}")
+    var braintree = Braintree.create("#{BraintreeRails::Configuration.client_side_encryption_key}")
     braintree.onSubmitEncryptForm('braintree-credit-card-form');
