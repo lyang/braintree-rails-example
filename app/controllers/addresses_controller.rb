@@ -48,7 +48,7 @@ class AddressesController < ApplicationController
   end
 
   def find_customer
-    @customer = BraintreeRails::Customer.find(@user.customer_id) if @user.customer_id.present?
+    @customer = @user.customer
     redirect_to user_path(@user) and return if @customer.nil?
   end
 

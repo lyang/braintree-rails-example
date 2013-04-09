@@ -37,7 +37,7 @@ class TransactionsController < ApplicationController
   def find_transactions
     if params[:user_id].present?
       @user = User.find(params[:user_id])
-      @customer = BraintreeRails::Customer.find(@user.customer_id) if @user && @user.customer_id.present?
+      @customer = @user.customer if @user
       @credit_card = @customer.credit_cards.find(params[:credit_card_id]) if params[:credit_card_id].present?
       @transactions = @credit_card.present? ? @credit_card.transactions : @customer.transactions
     else

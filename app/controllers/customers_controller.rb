@@ -49,6 +49,6 @@ class CustomersController < ApplicationController
   end
 
   def find_customer
-    @customer = BraintreeRails::Customer.find(@user.customer_id) if @user.customer_id.present?
+    @customer = @user.customer
   end
 end

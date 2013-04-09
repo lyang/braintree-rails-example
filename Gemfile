@@ -16,8 +16,15 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
-group :development do
+group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails', "~> 2.0"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 group :production do

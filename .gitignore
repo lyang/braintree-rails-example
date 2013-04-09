@@ -15,3 +15,4 @@
 /tmp
 .rvmrc
 tags
+/spec/support/braintree_auth.yml

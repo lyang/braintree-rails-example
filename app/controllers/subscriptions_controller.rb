@@ -58,7 +58,7 @@ class SubscriptionsController < ApplicationController
 
   def find_credit_card
     @user = User.find(params[:user_id]) if params[:user_id].present?
-    @customer = BraintreeRails::Customer.find(@user.customer_id) if @user && @user.customer_id.present?
+    @customer = @user.customer if @user
     @credit_card = @customer.credit_cards.find(params[:credit_card_id]) if @customer && params[:credit_card_id].present?
   end
 
