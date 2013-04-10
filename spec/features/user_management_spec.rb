@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Users CRUD" do
+describe "User Management" do
   it "creates user by given email" do
     visit users_path
     click_link 'New'
