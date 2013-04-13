@@ -23,6 +23,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem "launchy"
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end

@@ -18,7 +18,7 @@ module BraintreeIntegration
         :locality => 'Menlo Park',
         :region => 'California',
         :postal_code => '94025',
-        :country_name => 'United States of America'
+        :country_code_alpha2 => 'US'
       }
     end
 
@@ -32,6 +32,5 @@ module BraintreeIntegration
         :billing_address => address_hash,
       }
     end
-
   end
 end

@@ -1,9 +1,14 @@
 module BraintreeIntegration
   module Setup
-    def braintree_integration_setup
+    def braintree_integration_load_configuration
       load_configuration
       return if braintree_auth_set?
       pending("You need to provide real credentials in #{braintree_auth_file} to run #{self.class.description}")
+    end
+
+    def braintree_integration_setup_test_data
+      @user = User.create(:email => 'braintree-rails@example.com')
+      create_customer_for(@user)
     end
 
     def braintree_integration_teardown
@@ -21,16 +26,14 @@ module BraintreeIntegration
 
     def login_into_control_panel
       visit 'https://sandbox.braintreegateway.com/'
-      fill_in 'login', :with => configuration['username']
-      fill_in 'password', :with => configuration['password']
+      fill_in_all(nil, configuration.slice('login', 'password'))
       click_button 'Sign In'
     end
 
     def self.included(receiver)
-      RSpec.configure do |config|
-        config.before(:all, :braintree_integration => true) { braintree_integration_setup }
-        config.after(:all, :braintree_integration => true) { braintree_integration_teardown }
-      end
+      receiver.before(:all) { braintree_integration_load_configuration }
+      receiver.before(:each) { braintree_integration_setup_test_data }
+      receiver.after(:all) { braintree_integration_teardown }
     end
   end
 end

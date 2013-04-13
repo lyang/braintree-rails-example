@@ -7,8 +7,7 @@ class AddressesController < ApplicationController
   end
 
   def new
-    billing_address = @customer.addresses.first || {}
-    @address = @customer.addresses.build({:cardholder_name => @customer.full_name, :billing_address => billing_address})
+    @address = @customer.addresses.build(:country_code_alpha2 => 'US', :region => 'California')
   end
 
   def edit; end
