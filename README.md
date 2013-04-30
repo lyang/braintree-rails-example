@@ -17,7 +17,7 @@ Setup the database
 
     rake db:migrate
 
-Then you need to edit config/braintree.rb to put in your Braintree sandbox credentials
+Then you need to edit `config/braintree.rb` to put in your Braintree sandbox credentials
 ```ruby
 # Those are just delegation to Braintree::Configuration    
 BraintreeRails::Configuration.environment = :sandbox
