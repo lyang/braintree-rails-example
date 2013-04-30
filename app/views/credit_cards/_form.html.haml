@@ -1,7 +1,7 @@
 = simple_form_for @credit_card, :url => url, :html => { :class => 'form-horizontal', :id => 'braintree-credit-card-form' } do |f|
-  = f.input :number, :input_html => { 'data-encrypted-name' => true } if @credit_card.new_record?
+  = f.input(:number, :input_html => { 'data-encrypted-name' => true }) if @credit_card.new_record?
   = f.input :cardholder_name
-  = f.input :cvv, :maxlength => 4, :input_html => {'data-encrypted-name' => true } if @credit_card.new_record?
+  = f.input(:cvv, :maxlength => 4, :input_html => {'data-encrypted-name' => true }) if @credit_card.new_record?
   = f.input :expiration_month, options_for_month_select
   = f.input :expiration_year, options_for_year_select
   = f.simple_fields_for :billing_address, @credit_card.billing_address do |ba|
