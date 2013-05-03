@@ -2,7 +2,6 @@ module BraintreeIntegration
   module Configuration
     def load_configuration
       @configuration = (YAML.load_file(braintree_auth_file) rescue {}).tap do |config|
-        BraintreeRails::Configuration.environment = :sandbox
         BraintreeRails::Configuration.merchant_id = config['merchant_id']
         BraintreeRails::Configuration.public_key = config['public_key']
         BraintreeRails::Configuration.private_key = config['private_key']

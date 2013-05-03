@@ -19,8 +19,8 @@ module BraintreeIntegration
     end
 
     def purge_sandbox_data
-      find('#account_menu').click
-      click_link 'Purge Sandbox Data'
+      click_link 'Settings'
+      click_link 'Purge sandbox data'
       find('.ui-dialog-buttonset').find('span', :text => 'Yes').click
     end
 
