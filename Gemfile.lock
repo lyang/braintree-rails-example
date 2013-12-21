@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/lyang/braintree-rails.git
-  revision: 24ca943af1613932f05c562140ad931f8d6fcad7
+  revision: 1cb47e589289a662b9d7f11ebb5f917796312b8d
   branch: master
   specs:
-    braintree-rails (1.1.0)
+    braintree-rails (1.2.2)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       braintree (>= 2.16.0)
@@ -40,7 +40,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.3)
     arel (3.0.2)
-    braintree (2.23.0)
+    braintree (2.27.1)
       builder (>= 2.0.0)
     builder (3.0.4)
     capybara (2.1.0)
@@ -89,7 +89,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.22)
-    multi_json (1.7.2)
+    multi_json (1.8.2)
     newrelic_rpm (3.6.0.78)
     nokogiri (1.5.9)
     pg (0.15.1)

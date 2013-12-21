@@ -19,8 +19,7 @@ module BraintreeIntegration
     end
 
     def purge_sandbox_data
-      click_link 'Settings'
-      click_link 'Purge sandbox data'
+      page.execute_script("$('#purge_sandbox_data_form').submit()")
       find('.ui-dialog-buttonset').find('span', :text => 'Yes').click
     end
 
