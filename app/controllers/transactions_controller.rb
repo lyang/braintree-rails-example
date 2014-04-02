@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = @transactions.build(params[:transaction])
+    @transaction = @transactions.build(params[:transaction].merge(params.slice(:device_data)))
     if @transaction.save
       flash[:notice] = "Transaction has been successfully created."
       redirect_to transaction_path(@transaction)

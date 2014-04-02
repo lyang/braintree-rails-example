@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
-ruby "1.9.3"
+ruby "2.0.0"
 
 gem 'rails', '~> 3.2.13'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'carmen-rails'
+gem 'thin'
 
 gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
 
@@ -17,6 +18,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'sqlite3'
   gem 'rspec-rails', "~> 2.0"
 end

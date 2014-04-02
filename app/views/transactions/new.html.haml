@@ -7,3 +7,4 @@
   :javascript
     var braintree = Braintree.create("#{BraintreeRails::Configuration.client_side_encryption_key}")
     braintree.onSubmitEncryptForm('braintree-transaction-form');
+    BraintreeData.setup("#{BraintreeRails::Configuration.merchant_id}", "braintree-transaction-form", BraintreeData.environments.sandbox)
