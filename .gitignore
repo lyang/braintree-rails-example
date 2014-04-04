@@ -14,5 +14,7 @@
 /log/*.log
 /tmp
 .rvmrc
+.ruby-version
+.ruby-gemset
 tags
 /spec/support/braintree_integration/braintree_auth.yml

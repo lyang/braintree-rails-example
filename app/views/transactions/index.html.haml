@@ -1,6 +1,6 @@
 - model_class = BraintreeRails::Transaction
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  %h1=t '.title', default: model_class.model_name.human.pluralize
 %table.table.table-striped
   %thead
     %tr
@@ -19,9 +19,9 @@
         %td= transaction.customer.full_name
         %td= transaction.credit_card.masked_number
         %td
-          = link_to 'Submit', transaction_path(transaction, :operation => 'submit_for_settlement'), :method => :put, :class => 'btn btn-mini btn-primary'
-          = link_to 'Void', transaction_path(transaction, :operation => 'void'), :method => :put, :class => 'btn btn-mini btn-warning'
-          = link_to 'Refund', transaction_path(transaction, :operation => 'refund'), :method => :put, :class => 'btn btn-mini btn-danger'
+          = link_to 'Submit', transaction_path(transaction, operation: 'submit_for_settlement'), method: :put, class: 'btn btn-mini btn-primary'
+          = link_to 'Void', transaction_path(transaction, operation: 'void'), method: :put, class: 'btn btn-mini btn-warning'
+          = link_to 'Refund', transaction_path(transaction, operation: 'refund'), method: :put, class: 'btn btn-mini btn-danger'
 
-= link_to 'Back', back_path, :class => 'btn'
-= link_to 'New', new_transaction_path, :class => 'btn btn-primary'
+= link_to 'Back', back_path, class: 'btn'
+= link_to 'New', new_transaction_path, class: 'btn btn-primary'

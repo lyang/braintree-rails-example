@@ -1,4 +1,4 @@
 - model_class = BraintreeRails::Subscription
 .page-header
   %h1="Edit #{model_class.model_name.human}"
-= render :partial => "form", :locals => {:url => subscription_path(@subscription)}
+= render partial: "form", locals: {url: subscription_path(@subscription)}

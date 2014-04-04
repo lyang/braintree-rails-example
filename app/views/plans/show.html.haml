@@ -1,6 +1,6 @@
 - model_class = BraintreeRails::Plan
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1=t '.title', default: model_class.model_name.human
 - @plan.attributes.each do |attribute, value|
   - next unless value.present?
   %p
@@ -9,5 +9,5 @@
     = @plan.send(attribute)
 
 .form-actions
-  = link_to 'Back', plans_path, :class => 'btn'
-  = link_to 'Subscriptions', plan_subscriptions_path(@plan), :class => 'btn'
+  = link_to 'Back', plans_path, class: 'btn'
+  = link_to 'Subscriptions', plan_subscriptions_path(@plan), class: 'btn'

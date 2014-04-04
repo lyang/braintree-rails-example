@@ -1,6 +1,6 @@
 - model_class = BraintreeRails::CreditCard
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1=t '.title', default: model_class.model_name.human
 - [:card_type, :masked_number, :cardholder_name, :expiration_date].each do |attribute|
   %p
     %strong= model_class.human_attribute_name(attribute) + ':'
@@ -13,8 +13,8 @@
     = @credit_card.billing_address.send(billing_address_attribute) if @credit_card.billing_address
 
 .form-actions
-  = link_to 'Back', user_customer_credit_cards_path(@user), :class => 'btn'
-  = link_to 'Edit', edit_user_customer_credit_card_path(@user, @credit_card), :class => 'btn'
-  = link_to 'Transactions', user_customer_credit_card_transactions_path(@user, @credit_card), :class => 'btn'
-  = link_to 'Subscriptions', user_customer_credit_card_subscriptions_path(@user, @credit_card), :class => 'btn'
-  = link_to 'Destroy', user_customer_credit_card_path(@user, @credit_card), :method => "delete", :confirm => 'Are you sure?', :class => 'btn btn-danger'
+  = link_to 'Back', user_customer_credit_cards_path(@user), class: 'btn'
+  = link_to 'Edit', edit_user_customer_credit_card_path(@user, @credit_card), class: 'btn'
+  = link_to 'Transactions', user_customer_credit_card_transactions_path(@user, @credit_card), class: 'btn'
+  = link_to 'Subscriptions', user_customer_credit_card_subscriptions_path(@user, @credit_card), class: 'btn'
+  = link_to 'Destroy', user_customer_credit_card_path(@user, @credit_card), method: "delete", data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'

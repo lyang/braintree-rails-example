@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  validates :email, :uniqueness => true, :presence => true
-  attr_accessible :email, :customer_id
+  validates :email, uniqueness: true, presence: true
   after_destroy :destroy_customer
 
   def customer

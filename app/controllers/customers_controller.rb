@@ -1,9 +1,9 @@
 class CustomersController < ApplicationController
   before_filter :find_user
-  before_filter :find_customer, :except => [:new, :create]
+  before_filter :find_customer, except: [:new, :create]
 
   def new
-    @customer = BraintreeRails::Customer.new(:email => @user.email)
+    @customer = BraintreeRails::Customer.new(email: @user.email)
   end
 
   def create

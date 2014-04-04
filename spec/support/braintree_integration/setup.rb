@@ -7,7 +7,7 @@ module BraintreeIntegration
     end
 
     def braintree_integration_setup_test_data
-      @user = User.create(:email => 'braintree-rails@example.com')
+      @user = User.create(email: 'braintree-rails@example.com')
       create_customer_for(@user)
     end
 
@@ -20,7 +20,7 @@ module BraintreeIntegration
 
     def purge_sandbox_data
       page.execute_script("$('#purge_sandbox_data_form').submit()")
-      find('.ui-dialog-buttonset').find('span', :text => 'Yes').click
+      find('.ui-dialog-buttonset').find('span', text: 'Yes').click
     end
 
     def login_into_control_panel

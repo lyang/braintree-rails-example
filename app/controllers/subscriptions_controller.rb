@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_filter :find_subscriptions
-  before_filter :find_subscription, :except => [:index, :create]
+  before_filter :find_subscription, except: [:index, :create]
   helper_method :subscription_path, :subscriptions_path
 
   def index; end

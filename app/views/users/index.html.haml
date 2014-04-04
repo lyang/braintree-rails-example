@@ -1,13 +1,13 @@
 - model_class = User
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  %h1=t '.title', default: model_class.model_name.human.pluralize
 %table.table.table-striped
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:email)
       %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th=t '.actions', default: t("helpers.actions")
   %tbody
     - @users.each do |user|
       %tr
@@ -15,7 +15,7 @@
         %td= link_to user.email, user_path(user)
         %td= user.created_at
         %td
-          = link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini'
-          = link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+          = link_to 'Edit', edit_user_path(user), class: 'btn btn-mini'
+          = link_to 'Destroy', user_path(user), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-mini btn-danger'
 
-= link_to 'New', new_user_path, :class => 'btn btn-primary'
+= link_to 'New', new_user_path, class: 'btn btn-primary'

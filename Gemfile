@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 ruby "2.0.0"
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 4.0.3'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'carmen-rails'
 gem 'thin'
-
+gem 'jquery-rails'
 gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails',   '~> 4.0.2'
+  gem 'coffee-rails', '~> 4.0.1'
+  gem 'uglifier', '>= 2.5.0'
   gem 'therubyracer', :platforms => :ruby
   gem 'twitter-bootstrap-rails'
 end
@@ -20,7 +20,7 @@ end
 group :development, :test do
   gem 'quiet_assets'
   gem 'sqlite3'
-  gem 'rspec-rails', "~> 2.0"
+  gem 'rspec-rails', "~> 2.14.2"
 end
 
 group :test do
@@ -34,5 +34,3 @@ group :production do
   gem 'newrelic_rpm'
   gem 'pg'
 end
-
-gem 'jquery-rails'

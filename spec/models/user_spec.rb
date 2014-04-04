@@ -4,8 +4,6 @@ describe User do
   describe '#email' do
     it { should validate_uniqueness_of(:email) }
     it { should validate_presence_of(:email) }
-    it { should allow_mass_assignment_of(:email) }
-    it { should allow_mass_assignment_of(:customer_id) }
   end
 
   describe "#customer" do
@@ -16,12 +14,12 @@ describe User do
     it "returns BraintreeRails::Customer if customer_id presents" do
       customer = BraintreeRails::Customer.new
       BraintreeRails::Customer.should_receive(:new).with('foo').and_return(customer)
-      User.new(:customer_id => 'foo').customer.should == customer
+      User.new(customer_id: 'foo').customer.should == customer
     end
 
     it "should delete customer if customer_id presents" do
       BraintreeRails::Customer.should_receive(:delete).with('foo')
-      User.create(:email => 'braintree-rails@example.com', :customer_id => 'foo').destroy
+      User.create(email: 'braintree-rails@example.com', customer_id: 'foo').destroy
     end
   end
 end

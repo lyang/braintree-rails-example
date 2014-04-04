@@ -11,7 +11,7 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
 
-  config.before(:all, :type => :model) do
+  config.before(:all, type: :model) do
     BraintreeRails::Configuration.merchant_id = nil
     BraintreeRails::Configuration.public_key = nil
     BraintreeRails::Configuration.private_key = nil
@@ -19,5 +19,5 @@ RSpec.configure do |config|
   end
 
   config.include(CapybaraHelper)
-  config.include(BraintreeIntegration, :braintree_integration => true)
+  config.include(BraintreeIntegration, braintree_integration: true)
 end

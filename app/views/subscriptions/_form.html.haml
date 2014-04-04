@@ -1,14 +1,14 @@
-= simple_form_for @subscription, :url => url, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @subscription, url: url, html: { class: 'form-horizontal' } do |f|
   - if @plan
     .control-group.string.optional.subscription_plan
-      %label.string.optional.control-label{:for => 'subscription_plan'}= 'Plan'
+      %label.string.optional.control-label{for: 'subscription_plan'}= 'Plan'
       .controls
         %p#subscription_plan.string.optional= @plan.name
   - else
     = f.input :plan_id, options_for_plan_select
   - if @credit_card
     .control-group.string.optional.subscription_credit_card
-      %label.string.optional.control-label{:for => 'subscription_credit_card'}= 'CreditCard'
+      %label.string.optional.control-label{for: 'subscription_credit_card'}= 'CreditCard'
       .controls
         %p#subscription_credit_card.string.optional= @credit_card.masked_number
   - else
@@ -16,5 +16,5 @@
   = f.input :id
   = f.input :price
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    = link_to 'Cancel', subscriptions_path, :class => 'btn'
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', subscriptions_path, class: 'btn'

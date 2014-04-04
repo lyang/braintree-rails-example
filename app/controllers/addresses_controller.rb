@@ -1,13 +1,13 @@
 class AddressesController < ApplicationController
   before_filter :find_user, :find_customer
-  before_filter :find_address, :except => [:new, :create]
+  before_filter :find_address, except: [:new, :create]
 
   def index
     @addresses = @customer.addresses
   end
 
   def new
-    @address = @customer.addresses.build(:country_code_alpha2 => 'US', :region => 'California')
+    @address = @customer.addresses.build(country_code_alpha2: 'US', region: 'California')
   end
 
   def edit; end

@@ -1,6 +1,6 @@
 - model_class = BraintreeRails::AddOn
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  %h1=t '.title', default: model_class.model_name.human.pluralize
 %table.table.table-striped
   %thead
     %tr
@@ -13,4 +13,4 @@
         %td= link_to add_on.id, add_on_path(add_on)
         %td= add_on.name
         %td= add_on.amount
-= link_to 'Back', root_path, :class => 'btn'
+= link_to 'Back', root_path, class: 'btn'

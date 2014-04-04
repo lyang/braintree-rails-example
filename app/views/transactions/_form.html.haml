@@ -1,28 +1,28 @@
-= simple_form_for @transaction, :url => transactions_path, :html => { :id => 'braintree-transaction-form', :class => 'form-horizontal' } do |f|
+= simple_form_for @transaction, url: transactions_path, html: { id: 'braintree-transaction-form', class: 'form-horizontal' } do |f|
   - if @credit_card
-    = f.input :amount, :hint => @credit_card.masked_number
+    = f.input :amount, hint: @credit_card.masked_number
   - elsif @customer
     = f.input :amount
     = f.input :credit_card, options_for_credit_card_select(@customer)
   - else
     = f.input :amount
     = f.simple_fields_for :credit_card, @transaction.credit_card do |cc|
-      = cc.input :number, :input_html => { 'data-encrypted-name' => true }
+      = cc.input :number, input_html: { 'data-encrypted-name' => true }
       = cc.input :cardholder_name
-      = cc.input :cvv, :maxlength => 4, :label => 'CVV', :input_html => { 'data-encrypted-name' => true }
-      = cc.input :expiration_month, options_for_month_select.merge(:input_html => { 'data-encrypted-name' => true })
-      = cc.input :expiration_year, options_for_year_select.merge(:input_html => { 'data-encrypted-name' => true })
+      = cc.input :cvv, maxlength: 4, label: 'CVV', input_html: { 'data-encrypted-name' => true }
+      = cc.input :expiration_month, options_for_month_select.merge(input_html: { 'data-encrypted-name' => true })
+      = cc.input :expiration_year, options_for_year_select.merge(input_html: { 'data-encrypted-name' => true })
     = f.simple_fields_for :billing, @transaction.billing do |ba|
       = ba.input :first_name
       = ba.input :last_name
       = ba.input :company
       = ba.input :street_address
       = ba.input :extended_address
-      = ba.input :locality, :label => 'City'
+      = ba.input :locality, label: 'City'
       = ba.input :country_code_alpha2, options_for_country_select
       = ba.input :region, options_for_region_select
       = ba.input :postal_code
 
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    = link_to 'Cancel', transactions_path, :class => 'btn'
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', transactions_path, class: 'btn'

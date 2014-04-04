@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   before_filter :find_user, :find_customer
-  before_filter :find_credit_card, :except => [:new, :create]
+  before_filter :find_credit_card, except: [:new, :create]
 
   def index
     @credit_cards = @customer.credit_cards
@@ -8,7 +8,7 @@ class CreditCardsController < ApplicationController
 
   def new
     billing_address = @customer.addresses.first || {}
-    @credit_card = @customer.credit_cards.build({:cardholder_name => @customer.full_name, :billing_address => billing_address})
+    @credit_card = @customer.credit_cards.build({cardholder_name: @customer.full_name, billing_address: billing_address})
   end
 
   def edit; end

@@ -1,6 +1,6 @@
 - model_class = BraintreeRails::Transaction
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1=t '.title', default: model_class.model_name.human
 - [:id, :amount, :status].each do |attribute|
   %p
     %strong= model_class.human_attribute_name(attribute) + ':'
@@ -16,4 +16,4 @@
   = @transaction.customer.full_name
 
 .form-actions
-  = link_to 'Back', transactions_path, :class => 'btn'
+  = link_to 'Back', transactions_path, class: 'btn'

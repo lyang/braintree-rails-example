@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   before_filter :find_transactions
-  before_filter :find_transaction, :except => [:new, :create]
-  before_filter :restricted_update, :only => :update
+  before_filter :find_transaction, except: [:new, :create]
+  before_filter :restricted_update, only: :update
   helper_method :transaction_path, :transactions_path
 
   def index; end
@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
   def show; end
 
   def new
-    @transaction = @transactions.build(:amount => rand(1..25))
+    @transaction = @transactions.build(amount: rand(1..25))
   end
 
   def create

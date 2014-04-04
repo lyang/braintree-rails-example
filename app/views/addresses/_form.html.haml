@@ -1,13 +1,13 @@
-= simple_form_for @address, :url => url, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @address, url: url, html: { class: 'form-horizontal' } do |f|
   = f.input :first_name
   = f.input :last_name
   = f.input :company
   = f.input :street_address
   = f.input :extended_address
-  = f.input :locality, :label => 'City'
+  = f.input :locality, label: 'City'
   = f.input :country_code_alpha2, options_for_country_select
   = f.input :region, options_for_region_select
   = f.input :postal_code
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    = link_to 'Cancel', user_customer_addresses_path(@user), :class => 'btn'
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', user_customer_addresses_path(@user), class: 'btn'

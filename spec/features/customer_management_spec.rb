@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe "Customer Management", :braintree_integration => true do
+describe "Customer Management", braintree_integration: true do
 
   it "redirects to new customer path if not present" do
-    user = User.create(:email => 'braintree-rails@example.org')
+    user = User.create(email: 'braintree-rails@example.org')
     visit user_customer_path(user)
     current_path.should == new_user_customer_path(user)
     find_field('Email').value.should == user.email
   end
 
   it "creates customer by given attributes" do
-    user = User.create(:email => 'braintree-rails@example.org')
+    user = User.create(email: 'braintree-rails@example.org')
     visit new_user_customer_path(user)
     fill_in_all(:customer, customer_hash)
     click_button('Create Customer')
@@ -32,7 +32,7 @@ describe "Customer Management", :braintree_integration => true do
 
   it "updates customer by given attributes" do
     visit edit_user_customer_path(@user)
-    fill_in_all(:customer, :email => 'braintree-rails@example.org')
+    fill_in_all(:customer, email: 'braintree-rails@example.org')
     click_button('Update Customer')
     page.should have_content('Customer has been successfully updated.')
     page.should have_content('braintree-rails@example.org')

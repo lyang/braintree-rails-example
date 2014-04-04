@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe "Address Management", :braintree_integration => true do
+describe "Address Management", braintree_integration: true do
 
   it "shows a list of addresses of given customer" do
     address = @user.customer.addresses.create!(address_hash)
     visit user_customer_addresses_path(@user)
-    page.should have_link(address.street_address, :href => user_customer_address_path(@user, address))
+    page.should have_link(address.street_address, href: user_customer_address_path(@user, address))
   end
 
   it "creates address by given attributes" do
@@ -32,7 +32,7 @@ describe "Address Management", :braintree_integration => true do
   it "updates address by given attributes" do
     address = @user.customer.addresses.create!(address_hash)
     visit edit_user_customer_address_path(@user, address)
-    fill_in_all(:address, :postal_code => '12345')
+    fill_in_all(:address, postal_code: '12345')
     click_button('Update Address')
     page.should have_content('Address has been successfully updated.')
     page.should have_content('12345')
