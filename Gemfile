@@ -10,10 +10,10 @@ gem 'jquery-rails'
 gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
 
 group :assets do
-  gem 'sass-rails',   '~> 4.0.2'
   gem 'coffee-rails', '~> 4.0.1'
   gem 'uglifier', '>= 2.5.0'
   gem 'therubyracer', :platforms => :ruby
+  gem "less-rails"
   gem 'twitter-bootstrap-rails'
 end
 
