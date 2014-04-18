@@ -4,3 +4,7 @@
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to 'Cancel', user_path(@user), class: 'btn'
+
+- content_for :javascript do
+  :javascript
+    BraintreeData.setup("#{BraintreeRails::Configuration.merchant_id}", "braintree-transaction-form", BraintreeData.environments.sandbox)

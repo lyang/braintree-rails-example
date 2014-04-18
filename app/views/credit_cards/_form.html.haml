@@ -17,3 +17,10 @@
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to 'Cancel', user_customer_credit_cards_path(@user), class: 'btn'
+
+- content_for :javascript do
+  :javascript
+    var braintree = Braintree.create("#{BraintreeRails::Configuration.client_side_encryption_key}")
+    braintree.onSubmitEncryptForm('braintree-credit-card-form');
+    BraintreeData.setup("#{BraintreeRails::Configuration.merchant_id}", "braintree-credit-card-form", BraintreeData.environments.sandbox)
+    BraintreeData.setup("#{BraintreeRails::Configuration.merchant_id}", "braintree-transaction-form", BraintreeData.environments.sandbox)

@@ -2,9 +2,3 @@
 .page-header
   %h1="New #{model_class.model_name.human}"
 = render partial: "form", locals: {url: user_customer_credit_cards_path(@user)}
-
-- content_for :javascript do
-  :javascript
-    var braintree = Braintree.create("#{BraintreeRails::Configuration.client_side_encryption_key}")
-    braintree.onSubmitEncryptForm('braintree-credit-card-form');
-    BraintreeData.setup("#{BraintreeRails::Configuration.merchant_id}", "braintree-credit-card-form", BraintreeData.environments.sandbox)

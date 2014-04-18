@@ -16,7 +16,7 @@ class CreditCardsController < ApplicationController
   def show; end
 
   def create
-    @credit_card = @customer.credit_cards.build(params[:credit_card])
+    @credit_card = @customer.credit_cards.build(params[:credit_card].merge(params.slice(:device_data)))
     if @credit_card.save
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card)
@@ -27,7 +27,7 @@ class CreditCardsController < ApplicationController
   end
 
   def update
-    if @credit_card.update_attributes(params[:credit_card])
+    if @credit_card.update_attributes(params[:credit_card].merge(params.slice(:device_data)))
       flash[:notice] = "Credit card has been successfully updated."
       redirect_to user_customer_credit_card_path(@user, @credit_card) and return
     else

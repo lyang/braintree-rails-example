@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = BraintreeRails::Customer.new(params[:customer])
+    @customer = BraintreeRails::Customer.new(params[:customer].merge(params.slice(:device_data)))
     if @customer.save
       @user.update_attribute(:customer_id, @customer.id)
       flash[:notice] = "Customer has been successfully created."
@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
   def edit; end
 
   def update
-    if @customer.update_attributes(params[:customer])
+    if @customer.update_attributes(params[:customer].merge(params.slice(:device_data)))
       flash[:notice] = "Customer has been successfully updated."
       redirect_to user_customer_path(@user) and return
     else
