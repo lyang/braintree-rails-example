@@ -1,4 +1,4 @@
-# Welcome to braintree-rails-example [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lyang/braintree-rails-example/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# Welcome to braintree-rails-example
 [braintree-rails-example](https://github.com/lyang/braintree-rails-example) is a demo rails app that uses [braintree-rails](https://github.com/lyang/braintree-rails) gem to intergrate with Braintree payment api.
 
 This demo app shows how [braintree-rails](https://github.com/lyang/braintree-rails-example) simplified the code you needed in model/view/controller.
@@ -46,7 +46,3 @@ It will be purged periodically.
 
 ## Sandbox environment for testing
 You can get your sandbox env at https://www.braintreepayments.com/get-started
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lyang/braintree-rails-example/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
