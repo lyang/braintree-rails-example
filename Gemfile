@@ -8,14 +8,11 @@ gem 'carmen-rails'
 gem 'thin'
 gem 'jquery-rails'
 gem 'braintree-rails', :github => "lyang/braintree-rails", :branch => 'master'
-
-group :assets do
-  gem 'coffee-rails', '~> 4.0.1'
-  gem 'uglifier', '>= 2.5.0'
-  gem 'therubyracer', :platforms => :ruby
-  gem "less-rails"
-  gem 'twitter-bootstrap-rails'
-end
+gem 'coffee-rails', '~> 4.0.1'
+gem 'uglifier', '>= 2.5.0'
+gem 'therubyracer', :platforms => :ruby
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'quiet_assets'
